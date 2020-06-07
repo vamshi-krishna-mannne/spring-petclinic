@@ -4,7 +4,7 @@ node {
     stage('checkout') 
     git 'https://github.com/vamshi-krishna-mannne/spring-petclinic.git'
     stage('build')
-    bat label: 'packaging satge', script: 'mvn package'
+    bat label: ' ', script: 'mvn package'
     stage('archive')
     archiveArtifacts 'target/*.jar'
     stage('publish junit result')
