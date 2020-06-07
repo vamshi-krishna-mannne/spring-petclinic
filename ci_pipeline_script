@@ -1,0 +1,18 @@
+node {
+    stage('environment setup')
+    env.PATH = "C:\\Windows\\System32"
+    stage('checkout') 
+    git 'https://github.com/vamshi-krishna-mannne/spring-petclinic.git'
+    stage('build')
+    bat label: 'packaging satge', script: 'mvn package'
+    stage('archive')
+    archiveArtifacts 'target/*.jar'
+    stage('publish junit result')
+    junit 'target/surefire-reports/*.xml'
+    stage('notify')
+    sendemail(${currentBuild.currentResult})
+}
+
+def sendemail(status){
+emailext body: 'Hey I am sending email', subject:"'about build' ${status}: Job ${env.JOB_NAME}", to: 'vamshi_manne@epam.com'
+}
