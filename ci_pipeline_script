@@ -1,6 +1,6 @@
 node {
     stage('environment setup')
-    env.PATH = "C:\\Windows\\System32"
+    env.PATH = "C:\apache-maven-3.6.3;C:\\Windows\\System32"
     stage('checkout') 
     git 'https://github.com/vamshi-krishna-mannne/spring-petclinic.git'
     stage('build')
