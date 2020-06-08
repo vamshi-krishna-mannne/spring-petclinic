@@ -1,6 +1,8 @@
 node {
-    stage('environment setup')
+    stage('environment setup'){
     env.PATH = "C:/apache-maven-3.6.3/bin;C:\\Windows\\System32;C:/Program Files/Java/jdk1.8.0_231/bin"
+    tool name:'maven 3.6.3',type:'maven'
+    tool name:'java8',type:'jdk'}
     stage('checkout') 
     git 'https://github.com/vamshi-krishna-mannne/spring-petclinic.git'
     stage('build')
