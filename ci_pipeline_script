@@ -1,6 +1,6 @@
 node() {
     stage('environment setup'){
-    env.PATH = "C:\\Windows\\System32;"
+    env.PATH = "C:/apache-maven-3.6.3/bin;C:\\Windows\\System32;"
     tool name:'maven 3.6.3',type:'maven'
     tool name:'java8',type:'jdk'}
     stage('checkout') 
